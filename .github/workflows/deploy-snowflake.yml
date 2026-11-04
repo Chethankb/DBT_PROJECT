@@ -1,0 +1,18 @@
+name: Deploy Snowflake
+
+on:
+  push:
+    branches:
+      - dev
+      - pre
+      - prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display deployment branch
+        run: echo "Deploying branch $GITHUB_REF_NAME"
